@@ -3,7 +3,7 @@
 # parameter
   1. input --string, Path of a input FASTA
   2. output --string, Enter the name of output csv, the output file will be created in 'ORF_output' folder behind this python.
-  3. min_orf_length --integer, Minmum length(a.a.) of ORF (default = 20)
+  3. min_protein_length --integer, Minmum length(a.a.) of ORF (default = 20)
   4. seq_repeat --integer(1~4), How many times sequence repeat to find ORF (default = 4 times)
 
 # notice
