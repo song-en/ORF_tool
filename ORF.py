@@ -38,7 +38,7 @@ def FoolProof(seq):
 # python commond setting
 def ArgSet():
     parser = argparse.ArgumentParser()
-    parser.add_argument("input", help='Path of a input fasta')
+    parser.add_argument("input", help='Path of a input FASTA')
     parser.add_argument("output", help='Enter the name of output csv')
     parser.add_argument('min_protein_len', default=20, nargs='?', const=1, type=int ,help='Minmum length(a.a.) of ORF (default = 20)')
     parser.add_argument('seq_repeat', default=4, nargs='?', const=1, type=int ,help='How many times sequence repeat to find ORF (default = 4 times)')
@@ -106,7 +106,7 @@ def main(min_orf_length,seq_repeat):
             if (taa + tag + tga != 0):
                 orf_type = 'ORF'
             else:
-                orf_type = 'cORF'
+                orf_type = 'INF-cORF'
             ORF_start = atg
             ORF_end = (atg + min(stop_co)*3+3)-1
             bsj = len(result)
@@ -152,7 +152,7 @@ def translate(seq,orf_type):
     pep_len = len(peptide)
     if orf_type == 'ORF':
         stop_codon = seq[-3]+seq[-2]+seq[-1]
-    elif orf_type == 'cORF':
+    elif orf_type == 'INF-cORF':
         peptide = peptide + '*'
         stop_codon = '*'
     return peptide, pep_len ,stop_codon
