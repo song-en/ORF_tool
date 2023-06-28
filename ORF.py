@@ -104,7 +104,7 @@ def main(min_orf_length,seq_repeat):
 
             #取ORF位置
             if (taa + tag + tga != 0):
-                orf_type = 'ORF'
+                orf_type = 'cORF'
             else:
                 orf_type = 'INF-cORF'
             ORF_start = atg
@@ -150,7 +150,7 @@ def translate(seq,orf_type):
     codon = wrap(seq, 3)
     peptide = ''.join([replacer(n, n) for n in codon])
     pep_len = len(peptide)
-    if orf_type == 'ORF':
+    if orf_type == 'cORF':
         stop_codon = seq[-3]+seq[-2]+seq[-1]
     elif orf_type == 'INF-cORF':
         peptide = peptide + '*'
